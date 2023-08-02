@@ -1,10 +1,13 @@
+import "./ExpenseTracker.css";
 const ExpenseTracker = () => {
   return (
-    <div>
-      <h1>Expense Tracker</h1>
-      <p>Food Rs 120</p>
-      <p>Petrol Rs 100</p>
-      <p>Movie Rs 200</p>
+    <div className="expense-item">
+      <div>02-June-2023</div>
+
+      <div className="expense-item__description">
+        <h2>Food</h2>
+       <div className="expense-item__price">Rs. 145</div>
+      </div>
     </div>
   );
 };
