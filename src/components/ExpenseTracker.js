@@ -1,9 +1,10 @@
 import "./ExpenseTracker.css";
-const ExpenseTracker = (props) => {
+const ExpenseTracker = props => {
+
   return (
     <div className="expense-item">
       <div>
-        {props.date.toISOString()}
+        {new Date().getDate()}-{new Date().getMonth()}-{new Date().getFullYear()}
       </div>
 
       <div className="expense-item__description">
