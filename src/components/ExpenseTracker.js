@@ -1,24 +1,20 @@
 import "./ExpenseTracker.css";
-const ExpenseTracker = () => {
-  const expenseDate = new Date();
-  const expenseTitle = "Food";
-  const expensePrice = 145;
-  const locationOfExpenditure = "Meghna Briyani Bangalore";
+const ExpenseTracker = (props) => {
   return (
     <div className="expense-item">
       <div>
-        {expenseDate.toISOString()}
+        {props.date.toISOString()}
       </div>
 
       <div className="expense-item__description">
         <h2>
-          {locationOfExpenditure}
+          {props.location}
         </h2>
         <h2>
-          {expenseTitle}
+          {props.title}
         </h2>
         <div className="expense-item__price">
-          Rs.{expensePrice}
+          Rs.{props.amount}
         </div>
       </div>
     </div>
