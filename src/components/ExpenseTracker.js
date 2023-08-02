@@ -3,6 +3,7 @@ const ExpenseTracker = () => {
   const expenseDate = new Date();
   const expenseTitle = "Food";
   const expensePrice = 145;
+  const locationOfExpenditure = "Meghna Briyani Bangalore";
   return (
     <div className="expense-item">
       <div>
@@ -10,6 +11,9 @@ const ExpenseTracker = () => {
       </div>
 
       <div className="expense-item__description">
+        <h2>
+          {locationOfExpenditure}
+        </h2>
         <h2>
           {expenseTitle}
         </h2>
