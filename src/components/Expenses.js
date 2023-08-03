@@ -1,5 +1,6 @@
 import "./Expenses.css";
 import ExpenseTracker from "./ExpenseTracker";
+import Card from "./Card";
 const Expenses = () => {
   const allExpenses = [
     {
@@ -32,9 +33,7 @@ const Expenses = () => {
     }
   ];
   return (
-    <div>
-      <h2>Let's get started!</h2>
-      <div className="expenses">
+      <Card className="expenses">
         {allExpenses.map(item =>
           <ExpenseTracker
             key={item.id}
@@ -44,8 +43,7 @@ const Expenses = () => {
             date={item.date}
           />
         )}
-      </div>
-    </div>
+      </Card>
   );
 };
 export default Expenses;
