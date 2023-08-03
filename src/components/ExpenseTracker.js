@@ -1,12 +1,9 @@
 import "./ExpenseTracker.css";
+import ExpenseDate from "./ExpenseDate";
 const ExpenseTracker = props => {
-
   return (
     <div className="expense-item">
-      <div>
-        {new Date().getDate()}-{new Date().getMonth()}-{new Date().getFullYear()}
-      </div>
-
+      <ExpenseDate date={props.date} />
       <div className="expense-item__description">
         <h2>
           {props.location}
