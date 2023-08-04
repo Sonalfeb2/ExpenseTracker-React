@@ -1,6 +1,6 @@
 import "./Expenses.css";
 import ExpenseTracker from "./ExpenseTracker";
-import Card from "./Card";
+import Card from "../UI/Card";
 const Expenses = () => {
   const allExpenses = [
     {

@@ -1,7 +1,7 @@
 import "./ExpenseTracker.css";
 import ExpenseDate from "./ExpenseDate";
 import ExpenseDetail from "./ExpenseDetail";
-import Card from "./Card";
+import Card from "../UI/Card";
 const ExpenseTracker = props => {
   return (
     <Card className="expense-item">
