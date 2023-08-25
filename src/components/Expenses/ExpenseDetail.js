@@ -1,4 +1,7 @@
 const ExpenseDetail = props => {
+  const DeleteExpense=()=>{
+    console.log("DELETED");
+  }
   return (
     <div className="expense-item__description">
       <h2>
@@ -10,6 +13,7 @@ const ExpenseDetail = props => {
       <div className="expense-item__price">
         Rs.{props.amount}
       </div>
+      <button onClick={DeleteExpense}>Delete Expense</button>
     </div>
   );
 };

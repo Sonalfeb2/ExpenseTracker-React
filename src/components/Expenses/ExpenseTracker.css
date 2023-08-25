@@ -6,7 +6,6 @@
     margin: 1rem 0;
     background-color: #4b4b4b;
   }
-  
   .expense-item__description {
     display: flex;
     flex-direction: column;
@@ -16,8 +15,7 @@
     justify-content: flex-start;
     flex: 1;
   }
-  
-  .expense-item h2 {
+   .expense-item h2 {
     color: #3a3a3a;
     font-size: 1rem;
     flex: 1;
