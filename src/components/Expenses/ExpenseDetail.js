@@ -1,5 +1,9 @@
+import React ,{useState}from 'react';
+
 const ExpenseDetail = props => {
-  const DeleteExpense=()=>{
+  const [expense, setExpense]= useState(props.amount);
+  const ChangeExpense=()=>{
+    setExpense('100$')
     console.log("DELETED");
   }
   return (
@@ -11,9 +15,9 @@ const ExpenseDetail = props => {
         {props.title}
       </h2>
       <div className="expense-item__price">
-        Rs.{props.amount}
+       {expense}
       </div>
-      <button onClick={DeleteExpense}>Delete Expense</button>
+      <button onClick={ChangeExpense}>Change Expense</button>
     </div>
   );
 };
