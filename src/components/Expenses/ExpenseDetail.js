@@ -1,9 +1,9 @@
 import React ,{useState}from 'react';
 
 const ExpenseDetail = props => {
-  const [expense, setExpense]= useState(props.amount);
+  const [expenseAmount, setExpenseAmount]= useState(props.amount);
   const ChangeExpense=()=>{
-    setExpense('100$')
+    setExpenseAmount('100$')
     console.log("DELETED");
   }
   return (
@@ -15,7 +15,7 @@ const ExpenseDetail = props => {
         {props.title}
       </h2>
       <div className="expense-item__price">
-       {expense}
+       {expenseAmount}
       </div>
       <button onClick={ChangeExpense}>Change Expense</button>
     </div>
