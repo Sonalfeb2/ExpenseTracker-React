@@ -1,20 +1,20 @@
 import { useState } from "react";
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
   const [expenseObj, setExpenseObj] = useState({
     title: "",
     amount: 0,
     location: ""
   });
-  const [expenseArr, setExpenseArr] = useState([]);
   const submitHandler = () => {
-    setExpenseArr(expenseArr => [...expenseArr, expenseObj]);
-
-    console.log(expenseArr, expenseObj);
+    const expenseData = {...expenseObj,id:Math.random().toString(),date: new Date()}
+    props.expenseHandler(expenseData);
     setExpenseObj({
       title: "",
       amount: 0,
       location: ""
     });
+    
+    console.log(expenseData);
   };
   return (
     <div className="expenseForm">
