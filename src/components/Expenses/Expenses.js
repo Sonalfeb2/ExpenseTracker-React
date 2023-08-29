@@ -42,7 +42,7 @@ const Expenses = () => {
     setFilterYear(selectedYear);
   };
   const expenseHandler = expenseObj => {
-    expenseObj.date = new Date(expenseObj.date);//// Write a  new expense date in a date format
+    expenseObj.date = new Date(expenseObj.date); //// Write a  new expense date in a date format
     setExpenseArr(expenseArr => [expenseObj, ...expenseArr]);
     console.log(expenseArr);
   };
@@ -54,7 +54,8 @@ const Expenses = () => {
     <Card className="expenses">
       <ExpenseForm expenseHandler={expenseHandler} />
       <ExpensesFilter filterHandler={filterHandler} filterYear={filterYear} />
-      {filter.length &&
+      {filter.length == 0 && <p style={{color:"white"}}>No Expense Found</p>}
+      {filter.length >0&&
         filter.map(item =>
           <ExpenseTracker
             key={item.id}
