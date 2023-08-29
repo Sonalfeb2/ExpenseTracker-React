@@ -5,3 +5,11 @@
     width: 50rem;
     max-width: 95%;
 }
+.expenseForm label{
+  color: white;
+  margin: 10px;
+}
+.expenseForm input{
+    width: 100%;
+    margin-bottom: 10px;
+}

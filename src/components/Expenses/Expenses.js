@@ -1,5 +1,6 @@
 import "./Expenses.css";
 import ExpenseTracker from "./ExpenseTracker";
+import ExpenseForm from "./ExpenseForm";
 import Card from "../UI/Card";
 const Expenses = () => {
   const allExpenses = [
@@ -33,17 +34,19 @@ const Expenses = () => {
     }
   ];
   return (
-      <Card className="expenses">
-        {allExpenses.map(item =>
-          <ExpenseTracker
-            key={item.id}
-            title={item.title}
-            amount={item.amount}
-            location={item.location}
-            date={item.date}
-          />
-        )}
-      </Card>
+    <Card className="expenses">
+      <ExpenseForm />
+
+      {allExpenses.map(item =>
+        <ExpenseTracker
+          key={item.id}
+          title={item.title}
+          amount={item.amount}
+          location={item.location}
+          date={item.date}
+        />
+      )}
+    </Card>
   );
 };
 export default Expenses;
