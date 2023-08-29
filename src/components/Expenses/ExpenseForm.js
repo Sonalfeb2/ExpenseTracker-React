@@ -25,7 +25,10 @@ const ExpenseForm = () => {
           id="amount"
           value={expenseObj.amount}
           onChange={e => {
-            setExpenseObj({ ...expenseObj, amount: e.target.value });
+            setExpenseObj(prevState => ({
+              ...prevState,
+              amount: e.target.value
+            }));
           }}
         />
       </div>
@@ -36,7 +39,10 @@ const ExpenseForm = () => {
           id="title"
           value={expenseObj.title}
           onChange={e => {
-            setExpenseObj({ ...expenseObj, title: e.target.value });
+            setExpenseObj(prevState => ({
+                ...prevState,
+                title: e.target.value
+              }));
           }}
         />
       </div>
@@ -47,7 +53,10 @@ const ExpenseForm = () => {
           id="location"
           value={expenseObj.location}
           onChange={e => {
-            setExpenseObj({ ...expenseObj, location: e.target.value });
+            setExpenseObj(prevState => ({
+                ...prevState,
+                location: e.target.value
+              }));
           }}
         />
       </div>
