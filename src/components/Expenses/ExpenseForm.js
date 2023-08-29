@@ -1,11 +1,20 @@
+import { useState } from "react";
 const ExpenseForm = () => {
-  const expenseObj = [];
-  var userInput = {};
+  const [expenseObj, setExpenseObj] = useState({
+    title: "",
+    amount: 0,
+    location: ""
+  });
+  const [expenseArr, setExpenseArr] = useState([]);
   const submitHandler = () => {
-    console.log(userInput);
-    expenseObj.push(userInput);
-    userInput={};
-    console.log(expenseObj)
+    setExpenseArr(expenseArr => [...expenseArr, expenseObj]);
+
+    console.log(expenseArr, expenseObj);
+    setExpenseObj({
+      title: "",
+      amount: 0,
+      location: ""
+    });
   };
   return (
     <div className="expenseForm">
@@ -14,9 +23,9 @@ const ExpenseForm = () => {
         <input
           type="number"
           id="amount"
-          placeholder="Enter Your Amount..."
+          value={expenseObj.amount}
           onChange={e => {
-            userInput.amount = e.target.value;
+            setExpenseObj({ ...expenseObj, amount: e.target.value });
           }}
         />
       </div>
@@ -25,9 +34,9 @@ const ExpenseForm = () => {
         <input
           type="text"
           id="title"
-          placeholder="Enter Title..."
+          value={expenseObj.title}
           onChange={e => {
-            userInput.title = e.target.value;
+            setExpenseObj({ ...expenseObj, title: e.target.value });
           }}
         />
       </div>
@@ -36,9 +45,9 @@ const ExpenseForm = () => {
         <input
           type="text"
           id="location"
-          placeholder="Enter the location..."
+          value={expenseObj.location}
           onChange={e => {
-            userInput.location = e.target.value;
+            setExpenseObj({ ...expenseObj, location: e.target.value });
           }}
         />
       </div>
