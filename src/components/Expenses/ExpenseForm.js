@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./ExpenseForm.css";
 const ExpenseForm = props => {
   const [showForm, setShowForm] = useState(false);
+  const [showError, setShowError] = useState(false);
   const [expenseObj, setExpenseObj] = useState({
     title: "",
     amount: 0,
@@ -9,23 +10,34 @@ const ExpenseForm = props => {
     date: ""
   });
   const submitHandler = () => {
-    const expenseData = {
-      ...expenseObj,
-      id: Math.random().toString()
-    };
-    props.expenseHandler(expenseData);
-    setExpenseObj({
-      title: "",
-      amount: 0,
-      location: "",
-      date: ""
-    });
-    setShowForm(!showForm);
+    if (
+      expenseObj.title &&
+      expenseObj.amount &&
+      expenseObj.date &&
+      expenseObj.location
+    ) {
+      const expenseData = {
+        ...expenseObj,
+        id: Math.random().toString()
+      };
+      props.expenseHandler(expenseData);
+      setExpenseObj({
+        title: "",
+        amount: 0,
+        location: "",
+        date: ""
+      });
+      setShowError(false);
+    } else {
+      setShowError(true);
+    }
   };
   return (
     <div>
       {showForm &&
         <div className="new-expense">
+          {showError &&
+            <p style={{ backgroundColor: "red" }}>Please Fill All Inputs</p>}
           <div className="new-expense__controls">
             <div className="new-expense__control">
               <label>Title</label>
