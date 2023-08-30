@@ -2,22 +2,19 @@ import React from "react";
 import ExpenseTracker from "./ExpenseTracker";
 import "./ExpenseList.css";
 const ExpenseList = props => {
-  const filter = props.expenseArr.filter(
-    expenseItem =>
-      expenseItem.date.getFullYear().toString() === props.filterYear
-  );
-  if (filter.length === 0) {
+  
+  if (props.filteredExpenses.length === 0) {
     return <p className="expenses-list__fallback">No Expense Found</p>;
   }
-  if (filter.length === 1) {
+  if (props.filteredExpenses.length === 1) {
     return (
       <ul className="expenses-list">
         <ExpenseTracker
-          key={filter[0].id}
-          title={filter[0].title}
-          amount={filter[0].amount}
-          location={filter[0].location}
-          date={filter[0].date}
+          key={props.filteredExpenses[0].id}
+          title={props.filteredExpenses[0].title}
+          amount={props.filteredExpenses[0].amount}
+          location={props.filteredExpenses[0].location}
+          date={props.filteredExpenses[0].date}
         />
 
         <p className="expenses-list__fallback">
@@ -28,8 +25,8 @@ const ExpenseList = props => {
   }
   return (
     <ul className="expenses-list">
-      {filter.length > 0 &&
-        filter.map(item =>
+      {props.filteredExpenses.length > 0 &&
+        props.filteredExpenses.map(item =>
           <ExpenseTracker
             key={item.id}
             title={item.title}
