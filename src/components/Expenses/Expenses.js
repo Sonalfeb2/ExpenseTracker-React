@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "./Expenses.css";
-import ExpenseTracker from "./ExpenseTracker";
 import ExpenseForm from "./ExpenseForm";
 import Card from "../UI/Card";
 import ExpensesFilter from "./ExpenseFilter";
+import ExpenseList from "./ExpenseList";
 const Expenses = () => {
   const [filterYear, setFilterYear] = useState("2020");
   const expenses = [
@@ -46,25 +46,12 @@ const Expenses = () => {
     setExpenseArr(expenseArr => [expenseObj, ...expenseArr]);
     console.log(expenseArr);
   };
-  const filter = expenseArr.filter(
-    expenseItem => expenseItem.date.getFullYear().toString() === filterYear
-  );
 
   return (
     <Card className="expenses">
       <ExpenseForm expenseHandler={expenseHandler} />
       <ExpensesFilter filterHandler={filterHandler} filterYear={filterYear} />
-      {filter.length == 0 && <p style={{color:"white"}}>No Expense Found</p>}
-      {filter.length >0&&
-        filter.map(item =>
-          <ExpenseTracker
-            key={item.id}
-            title={item.title}
-            amount={item.amount}
-            location={item.location}
-            date={item.date}
-          />
-        )}
+      <ExpenseList expenseArr={expenseArr} filterYear={filterYear}/>
     </Card>
   );
 };
